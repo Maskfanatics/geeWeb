@@ -18,6 +18,7 @@ func onlyForV2() gee.HandlerFunc {
 
 func main() {
 	r := gee.New()
+	r.Static("/assets", "./static")
 	r.Use(gee.Logger())
 	r.GET("/index", func(ctx *gee.Context) {
 		ctx.HTML(http.StatusOK, "<h1>Index Page</h1>")
